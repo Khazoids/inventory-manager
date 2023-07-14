@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "jNQ15Z8M8p3JK4bEW5FqG3g8CQHGdlkdYHBSsPE3GLy2rT4IkbcHlkrw1Bp6kvfGIMBmw3a1JbIaSEAzmgVYWA==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\Phill\\source\\repos\\InventoryManager\\InventoryManager.EntityFramework\\InventoryManager.EntityFramework.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project InventoryManager is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Project InventoryManager supports: net6.0-windows7.0 (.NETCoreApp,Version=v6.0)",
+      "libraryId": "InventoryManager",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
+}
