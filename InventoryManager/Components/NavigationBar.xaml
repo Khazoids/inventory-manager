@@ -7,6 +7,40 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="10*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10*" />
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button
+                Content="Logo"
+                />
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <Button
+                Content="Logo"
+                Margin="10 20 10 0"
+                Padding="0 10 0 10"
+                />
+            <Button
+                Content="Home"
+                Margin="10 20 10 0"
+                Padding="0 10 0 10"
+                />
+            <Button
+                Content="History"
+                Margin="10 20 10 0"
+                Padding="0 10 0 10"
+                />
+            <Button
+                Content="Expenses"
+                Margin="10 20 10 0"
+                Padding="0 10 0 10"
+                />
+        </StackPanel>
     </Grid>
 </UserControl>

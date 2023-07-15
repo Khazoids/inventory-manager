@@ -13,5 +13,13 @@ namespace InventoryManager.Models {
         public decimal Price { get; set; }
         public DateOnly PurchaseDate { get; set; }
         public bool IsListed { get; set; }
+
+        public BoughtItemsModel(string shippingStatus, ItemsModel items, decimal price, DateOnly purchaseDate, bool isListed) {
+            ShippingStatus = shippingStatus;
+            Items = items;
+            Price = price;
+            PurchaseDate = purchaseDate;
+            IsListed = isListed;
+        }
     }
 }

@@ -9,5 +9,15 @@ namespace InventoryManager.Models {
         // public int Id { get; set; }
         public string ItemName { get; set; }
         public string ItemType { get; set; }
+
+        public ItemsModel(string itemName, string itemType) {
+            ItemName = itemName;
+            ItemType = itemType;
+        }
+
+        public override string ToString() {
+            return $"{ItemName}{ItemType}";
+        }
+
     }
 }

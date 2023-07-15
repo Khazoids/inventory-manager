@@ -7,6 +7,18 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Components\NavigationBar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\RecentlyBought.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\RecentlySold.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\Summary.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\ExpensesView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -27,6 +39,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Components\NavigationBar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\RecentlyBought.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\RecentlySold.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\Summary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

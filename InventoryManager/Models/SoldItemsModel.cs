@@ -10,8 +10,13 @@ namespace InventoryManager.Models {
         public string ShippingStatus { get; set; }
         public ItemsModel Items { get; set; }
         public decimal Price { get; set; }
-        public DateTime SaleDate { get; set; }
+        public DateOnly SaleDate { get; set; }
 
-        
+        public SoldItemsModel(string shippingStatus, ItemsModel items, decimal price, DateOnly saleDate) {
+            ShippingStatus = shippingStatus;
+            Items = items;
+            Price = price;
+            SaleDate = saleDate;
+        }
     }
 }
