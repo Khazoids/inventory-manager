@@ -19,6 +19,12 @@
     <Compile Update="Components\Summary.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\AddView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\EditView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\ExpensesView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -52,6 +58,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AddView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\EditView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\ExpensesView.xaml">

@@ -13,7 +13,7 @@ namespace InventoryManager.ViewModels {
         public string ItemName => _boughtItems.Items.ItemName;
         public string ItemType => _boughtItems.Items.ItemType;
         public decimal Price => _boughtItems.Price;
-        public DateOnly PurchaseDate => _boughtItems.PurchaseDate;
+        public string PurchaseDate => _boughtItems.PurchaseDate.ToString("d");
         public bool IsListed => _boughtItems.IsListed;
 
         public BoughtItemsViewModel(BoughtItemsModel boughtItems) {

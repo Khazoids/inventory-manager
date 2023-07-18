@@ -84,3 +84,7 @@ C:\Users\Phill\source\repos\InventoryManager\InventoryManager\obj\Debug\net6.0-w
 C:\Users\Phill\source\repos\InventoryManager\InventoryManager\obj\Debug\net6.0-windows\Components\RecentlySold.baml
 C:\Users\Phill\source\repos\InventoryManager\InventoryManager\obj\Debug\net6.0-windows\Components\Summary.baml
 C:\Users\Phill\source\repos\InventoryManager\InventoryManager\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Phill\source\repos\InventoryManager\InventoryManager\obj\Debug\net6.0-windows\Views\AddView.g.cs
+C:\Users\Phill\source\repos\InventoryManager\InventoryManager\obj\Debug\net6.0-windows\Views\EditView.g.cs
+C:\Users\Phill\source\repos\InventoryManager\InventoryManager\obj\Debug\net6.0-windows\Views\AddView.baml
+C:\Users\Phill\source\repos\InventoryManager\InventoryManager\obj\Debug\net6.0-windows\Views\EditView.baml

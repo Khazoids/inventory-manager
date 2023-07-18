@@ -22,7 +22,7 @@
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1">
             <Button
-                Content="Logo"
+                Content="Inventory"
                 Margin="10 20 10 0"
                 Padding="0 10 0 10"
                 />

@@ -9,7 +9,7 @@ namespace InventoryManager.ViewModels {
         public ViewModelBase CurrentViewModel { get; }
 
         public MainViewModel() { 
-            CurrentViewModel = new RecentlyBoughtViewModel();
+            CurrentViewModel = new AddFormViewModel();
         }
     }
 }

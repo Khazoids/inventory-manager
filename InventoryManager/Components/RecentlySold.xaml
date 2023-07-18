@@ -17,7 +17,7 @@
         <ListView Grid.Row="1" ItemsSource="{Binding SoldItems}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="Test" />
+                    <TextBlock Text="{Binding ItemName}" />
                 </DataTemplate>
             </ListView.ItemTemplate>            
         </ListView>

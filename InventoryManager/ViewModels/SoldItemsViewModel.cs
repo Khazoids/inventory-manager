@@ -15,7 +15,7 @@ namespace InventoryManager.ViewModels
         public string ItemName => _soldItems.Items.ItemName;
         public string ItemType => _soldItems.Items.ItemType;
         public decimal Price => _soldItems.Price;
-        public DateOnly SaleDate => _soldItems.SaleDate;
+        public string SaleDate => _soldItems.SaleDate.ToString("d");
 
         public SoldItemsViewModel(SoldItemsModel soldItems) {
             _soldItems = soldItems;
