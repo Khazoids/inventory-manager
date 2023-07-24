@@ -7,16 +7,22 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Components\NavigationBar.xaml.cs">
+    <Compile Update="Components\LayoutComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Components\RecentlyBought.xaml.cs">
+    <Compile Update="Components\NavigationBarComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Components\RecentlySold.xaml.cs">
+    <Compile Update="Components\RecentlyBoughtComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Components\Summary.xaml.cs">
+    <Compile Update="Components\RecentlySoldComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\SearchBarComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\SummaryComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\AddView.xaml.cs">
@@ -40,21 +46,24 @@
     <Compile Update="Views\MainView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\TestView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Components\NavigationBar.xaml">
+    <Page Update="Components\LayoutComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Components\RecentlyBought.xaml">
+    <Page Update="Components\NavigationBarComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Components\RecentlySold.xaml">
+    <Page Update="Components\RecentlyBoughtComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Components\Summary.xaml">
+    <Page Update="Components\RecentlySoldComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\SearchBarComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\SummaryComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
@@ -79,9 +88,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MainView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\TestView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

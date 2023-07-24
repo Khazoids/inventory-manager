@@ -1,4 +1,5 @@
-﻿using InventoryManager.ViewModels;
+﻿using InventoryManager.Stores;
+using InventoryManager.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -12,11 +13,16 @@ namespace InventoryManager {
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App:Application {
+        private readonly NavigationStore _navigationStore;
 
+
+        public App() {
+            _navigationStore = new NavigationStore();
+        }
         protected override void OnStartup(StartupEventArgs e) {
-
+            _navigationStore.CurrentViewModel = new HomeViewModel(new RecentlyBoughtViewModel(), new RecentlySoldViewModel());
             MainWindow = new MainWindow() {
-                DataContext = new MainViewModel()
+                DataContext = new MainViewModel(_navigationStore)
             };
 
             MainWindow.Show();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventoryManager.Commands;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -61,11 +62,13 @@ namespace InventoryManager.ViewModels {
             }
         }
 
-        public ICommand AddStatus { get; }
-        public ICommand AddCategory { get; }
-        public ICommand Submit { get; }
-        public ICommand Cancel { get; }
+        public ICommand AddStatusCommand { get; }
+        public ICommand AddCategoryCommand { get; }
+        public ICommand SubmitCommand { get; }
+        public ICommand CancelCommand { get; }
 
-        public AddFormViewModel() { }
+        public AddFormViewModel() {
+            SubmitCommand = new CreateItemCommand();
+        }
     }
 }

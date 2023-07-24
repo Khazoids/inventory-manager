@@ -1,9 +1,5 @@
 ﻿
 
-FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Components\NavigationBar.xaml;;
-FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Components\RecentlyBought.xaml;;
-FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Components\RecentlySold.xaml;;
-FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Components\Summary.xaml;;
 FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\MainWindow.xaml;;
 FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Views\AddView.xaml;;
 FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Views\EditView.xaml;;
@@ -12,5 +8,10 @@ FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Views\HistoryView
 FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Views\HomeView.xaml;;
 FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Views\InventoryView.xaml;;
 FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Views\MainView.xaml;;
-FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Views\TestView.xaml;;
+FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Components\NavigationBarComponent.xaml;;
+FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Components\RecentlyBoughtComponent.xaml;;
+FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Components\RecentlySoldComponent.xaml;;
+FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Components\SummaryComponent.xaml;;
+FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Components\LayoutComponent.xaml;;
+FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Components\SearchBarComponent.xaml;;
 

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Phill\source\repos\InventoryManager\InventoryManager\App.xaml
-131125626718
+14169339981
 
-41-698324806
+49641240700
 2221337961505
-Components\NavigationBar.xaml;Components\RecentlyBought.xaml;Components\RecentlySold.xaml;Components\Summary.xaml;MainWindow.xaml;Views\AddView.xaml;Views\EditView.xaml;Views\ExpensesView.xaml;Views\HistoryView.xaml;Views\HomeView.xaml;Views\InventoryView.xaml;Views\MainView.xaml;Views\TestView.xaml;
+Components\LayoutComponent.xaml;Components\NavigationBarComponent.xaml;Components\RecentlyBoughtComponent.xaml;Components\RecentlySoldComponent.xaml;Components\SearchBarComponent.xaml;Components\SummaryComponent.xaml;MainWindow.xaml;Views\AddView.xaml;Views\EditView.xaml;Views\ExpensesView.xaml;Views\HistoryView.xaml;Views\HomeView.xaml;Views\InventoryView.xaml;Views\MainView.xaml;
 
 True
 

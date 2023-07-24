@@ -3,10 +3,26 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:views="clr-namespace:InventoryManager.Views"
+        xmlns:vms="clr-namespace:InventoryManager.ViewModels" xmlns:components="clr-namespace:InventoryManager.Components"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <!-- <components:RecentlySold DataContext="{Binding CurrentViewModel}"/> -->
-        <views:AddView DataContext="{Binding CurrentViewModel}"/>
-    </Grid> 
+    <ContentControl Content="{Binding CurrentViewModel}" />
+    <ContentControl.Resources>
+        <DataTemplate DataType="{x:Type vms:HomeViewModel}">
+            <views:HomeView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vms:InventoryViewModel}">
+            <views:InventoryView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vms:ExpensesViewModel}">
+            <views:ExpensesView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vms:LayoutViewModel}">
+            <components:LayoutComponent />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vms:HistoryViewModel}">
+            <views:HistoryView />
+        </DataTemplate>
+        
+    </ContentControl.Resources> 
 </Window>

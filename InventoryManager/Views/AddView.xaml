@@ -39,7 +39,7 @@
                         Content="New Category"
                         Width="100"
                         Margin="20 0 0 0"
-                        Command="{Binding AddCategory}"
+                        Command="{Binding AddCategoryCommand}"
                         />
                 </WrapPanel>
                 <Label
@@ -56,7 +56,7 @@
                         Content="New Status"
                         Width="100"
                         Margin="20 0 0 0"
-                        Command="{Binding AddStatus}"
+                        Command="{Binding AddStatusCommand}"
                         />
                 </WrapPanel>
                 <Label
@@ -86,7 +86,7 @@
                 VerticalAlignment="Bottom"
                 Width="100"
                 Margin="0 0 10 50"
-                Command="{Binding Submit}"
+                Command="{Binding SubmitCommand}"
                 />
             <StackPanel Grid.Column="1">
                 <Label
@@ -111,7 +111,7 @@
                 HorizontalAlignment="Left"
                 Width="100"
                 Margin="10 0 0 50"
-                Command="{Binding Cancel}"
+                Command="{Binding CancelCommand}"
                 />
         </Grid>
         
