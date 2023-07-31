@@ -1,4 +1,5 @@
 ﻿using InventoryManager.Commands;
+using InventoryManager.Services;
 using InventoryManager.Stores;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,18 @@ namespace InventoryManager.ViewModels {
         public ICommand NavigateHistoryCommand { get; }
         public ICommand NavigateExpensesCommand { get; }
 
-        public NavigationBarViewModel(NavigationStore navigationStore) {
-            NavigateHomeCommand = new NavigateCommand(navigationStore, )  
+        public NavigationBarViewModel(
+            INavigationService<HomeViewModel> homeNavigation,
+            INavigationService<InventoryViewModel> inventoryNavigation,
+            INavigationService<HistoryViewModel> historyNavigation,
+            INavigationService<ExpensesViewModel> expensesNavigation
+            ) {
+
+            NavigateHomeCommand = new NavigateCommand<HomeViewModel>(homeNavigation);
+            NavigateInventoryCommand = new NavigateCommand<InventoryViewModel>(inventoryNavigation);
+            NavigateHistoryCommand = new NavigateCommand<HistoryViewModel>(historyNavigation);
+            NavigateExpensesCommand = new NavigateCommand<ExpensesViewModel>(expensesNavigation);
+            
         }
     }
 }

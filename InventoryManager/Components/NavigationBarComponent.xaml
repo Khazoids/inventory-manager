@@ -15,22 +15,25 @@
             Content="Home"
             Margin="10 20 10 0"
             Padding="0 10 0 10"
-            Command="{Binding NavigateCommand}"
+            Command="{Binding NavigateHomeCommand}"
             />
         <Button
             Content="Inventory"
             Margin="10 20 10 0"
             Padding="0 10 0 10"
+            Command="{Binding NavigateInventoryCommand}"
             />
         <Button
             Content="History"
             Margin="10 20 10 0"
             Padding="0 10 0 10"
+            Command="{Binding NavigateHistoryCommand}"
             />
         <Button
             Content="Expenses"
             Margin="10 20 10 0"
             Padding="0 10 0 10"
+            Command="{Binding NavigateExpensesCommand}"
             />
     </StackPanel>
     </Border>

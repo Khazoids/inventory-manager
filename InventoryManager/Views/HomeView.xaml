@@ -17,9 +17,7 @@
             <RowDefinition Height="10*" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <Button Grid.Column="0" Grid.Row="0" Content="Logo"/>
-        <components:SearchBarComponent Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"/>
-        <components:NavigationBarComponent Grid.Column="0" Grid.Row="1" Width="100" Grid.RowSpan="2" />
+        
         <components:RecentlyBoughtComponent Grid.Column="1" Grid.Row="1" BorderBrush="Lavender" BorderThickness="1" />
         <components:RecentlySoldComponent Grid.Column="2" Grid.Row="1" BorderBrush="Lavender" BorderThickness="1"/>
         <components:SummaryComponent Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" BorderBrush="Lavender" BorderThickness="0.5"/>

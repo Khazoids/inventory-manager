@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace InventoryManager.Services {
-    public class NavigationService<TViewModel>
+    public class NavigationService<TViewModel> : INavigationService<TViewModel>
         where TViewModel : ViewModelBase {
 
         private readonly NavigationStore _navigationStore; 

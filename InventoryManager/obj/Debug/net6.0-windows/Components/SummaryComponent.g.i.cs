@@ -53,7 +53,7 @@ namespace InventoryManager.Components {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/InventoryManager;V1.0.0.0;component/components/summarycomponent.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/InventoryManager;component/components/summarycomponent.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Components\SummaryComponent.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
