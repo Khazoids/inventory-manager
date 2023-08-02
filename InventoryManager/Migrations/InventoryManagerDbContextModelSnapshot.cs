@@ -22,19 +22,22 @@ namespace InventoryManager.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("InventoryManager.Models.BoughtItemsModel", b =>
+            modelBuilder.Entity("InventoryManager.DTOs.BoughtItemsDTO", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsListed")
                         .HasColumnType("bit");
 
-                    b.Property<int>("ItemsId")
-                        .HasColumnType("int");
+                    b.Property<string>("ItemName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ItemType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -48,18 +51,14 @@ namespace InventoryManager.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ItemsId");
-
                     b.ToTable("BoughtItems");
                 });
 
-            modelBuilder.Entity("InventoryManager.Models.ItemsModel", b =>
+            modelBuilder.Entity("InventoryManager.DTOs.ItemsDTO", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ItemName")
                         .IsRequired()
@@ -74,22 +73,25 @@ namespace InventoryManager.Migrations
                     b.ToTable("Items");
                 });
 
-            modelBuilder.Entity("InventoryManager.Models.SoldItemsModel", b =>
+            modelBuilder.Entity("InventoryManager.DTOs.SoldItemsDTO", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("uniqueidentifier");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<string>("ItemName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ItemsId")
-                        .HasColumnType("int");
+                    b.Property<string>("ItemType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("SaleDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("date");
 
                     b.Property<string>("ShippingStatus")
                         .IsRequired()
@@ -97,31 +99,7 @@ namespace InventoryManager.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ItemsId");
-
                     b.ToTable("SoldItems");
-                });
-
-            modelBuilder.Entity("InventoryManager.Models.BoughtItemsModel", b =>
-                {
-                    b.HasOne("InventoryManager.Models.ItemsModel", "Items")
-                        .WithMany()
-                        .HasForeignKey("ItemsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Items");
-                });
-
-            modelBuilder.Entity("InventoryManager.Models.SoldItemsModel", b =>
-                {
-                    b.HasOne("InventoryManager.Models.ItemsModel", "Items")
-                        .WithMany()
-                        .HasForeignKey("ItemsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Items");
                 });
 #pragma warning restore 612, 618
         }

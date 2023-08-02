@@ -9,7 +9,7 @@ namespace InventoryManager.Models {
         // public int Id { get; set; }
         private readonly List<ItemsModel> _items;
         public string ShippingStatus { get; set; }
-        public ItemsModel Items { get; set; }
+        public ItemsModel Item { get; set; }
 
         public decimal Price { get; set; }
         public DateOnly PurchaseDate { get; set; }
@@ -18,9 +18,9 @@ namespace InventoryManager.Models {
         public IEnumerable<ItemsModel> GetAllBoughtItems(string name) {
             return _items.Where(r => r.ItemName == name);
         }
-        public BoughtItemsModel(string shippingStatus, ItemsModel items, decimal price, DateOnly purchaseDate, bool isListed) {
+        public BoughtItemsModel(string shippingStatus, ItemsModel item, decimal price, DateOnly purchaseDate, bool isListed) {
             ShippingStatus = shippingStatus;
-            Items = items;
+            Item = item;
             Price = price;
             PurchaseDate = purchaseDate;
             IsListed = isListed;

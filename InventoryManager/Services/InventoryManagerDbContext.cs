@@ -1,4 +1,5 @@
-﻿using InventoryManager.Models;
+﻿using InventoryManager.DTOs;
+using InventoryManager.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System;
@@ -9,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace InventoryManager.Services {
     public class InventoryManagerDbContext:DbContext {
-        public DbSet<ItemsModel> Items {  get; set; }
+        public DbSet<ItemsDTO> Items {  get; set; }
 
-        public DbSet<BoughtItemsModel> BoughtItems { get; set; }
+        public DbSet<BoughtItemsDTO> BoughtItems { get; set; }
 
-        public DbSet<SoldItemsModel> SoldItems { get; set; }
+        public DbSet<SoldItemsDTO> SoldItems { get; set; }
 
         public InventoryManagerDbContext(DbContextOptions options) : base(options) { }
         protected override void ConfigureConventions(ModelConfigurationBuilder builder) {

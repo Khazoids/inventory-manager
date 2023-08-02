@@ -1,4 +1,7 @@
-﻿using InventoryManager.Services;
+﻿using InventoryManager.Models;
+using InventoryManager.Services;
+using InventoryManager.Services.ItemProviders;
+using InventoryManager.Services.ItemsCreator;
 using InventoryManager.Stores;
 using InventoryManager.ViewModels;
 using Microsoft.EntityFrameworkCore;
@@ -17,9 +20,15 @@ namespace InventoryManager {
     public partial class App:Application {
         private const string CONNECTION_STRING = "Server=.\\SQLEXPRESS;Database=ItemsDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
         private readonly NavigationStore _navigationStore;
-        
+        private readonly InventoryManagerDbContextFactory _inventoryManagerDbContextFactory;
+        private readonly InventoryModel _inventory;
 
         public App() {
+            _inventoryManagerDbContextFactory = new InventoryManagerDbContextFactory(CONNECTION_STRING);
+            IItemProvider itemProvider = new DatabaseItemProvider(_inventoryManagerDbContextFactory);
+            IItemCreator itemCreator = new DatabaseItemCreator(_inventoryManagerDbContextFactory);
+
+            _inventory = new InventoryModel(itemProvider, itemCreator);     
             _navigationStore = new NavigationStore();
            
         }
@@ -57,14 +66,14 @@ namespace InventoryManager {
         private INavigationService<HomeViewModel> CreateHomeNavigationService()
         {
             return new LayoutNavigationService<HomeViewModel>(_navigationStore, 
-                () => new HomeViewModel(new RecentlyBoughtViewModel(), new RecentlySoldViewModel()),
+                () => new HomeViewModel(RecentlyBoughtViewModel.LoadViewModel(_inventory), new RecentlySoldViewModel()),
                 CreateNavigationBarViewModel,
                 CreateSearchBarViewModel);
         }
 
         protected override void OnStartup(StartupEventArgs e) {
             DbContextOptions options = new DbContextOptionsBuilder().UseSqlServer(CONNECTION_STRING).Options;
-            InventoryManagerDbContext dbContext = new InventoryManagerDbContext(options);
+            InventoryManagerDbContext dbContext = _inventoryManagerDbContextFactory.CreateDbContext();
 
             dbContext.Database.Migrate();
 

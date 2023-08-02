@@ -12,8 +12,8 @@ namespace InventoryManager.ViewModels
         private readonly SoldItemsModel _soldItems;
 
         public string ShippingStatus => _soldItems.ShippingStatus;
-        public string ItemName => _soldItems.Items.ItemName;
-        public string ItemType => _soldItems.Items.ItemType;
+        public string ItemName => _soldItems.Item.ItemName;
+        public string ItemType => _soldItems.Item.ItemType;
         public decimal Price => _soldItems.Price;
         public string SaleDate => _soldItems.SaleDate.ToString("d");
 
