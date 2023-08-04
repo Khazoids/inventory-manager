@@ -10,16 +10,33 @@ namespace InventoryManager.DTOs
 {
     public class BoughtItemsDTO
     {
+        
         [Key]
         public Guid Id { get; set; }
+
+        [Required]
         public string ShippingStatus { get; set; }
 
-        // ItemModels Item;
-        public string ItemName { get; set; }
-        public string ItemType { get; set; }
+        [Required]
+        public ItemsDTO Item { get; set; }
+        [Required]
         public decimal Price { get; set; }
-        public DateOnly PurchaseDate { get; set; }
+        [Required]
+        public DateTime PurchaseDate { get; set; }
+        [Required]
         public bool IsListed { get; set; }
-        
+
+        public BoughtItemsDTO() {
+
+        }
+        public BoughtItemsDTO(string shippingStatus, ItemsDTO item, decimal price, DateTime purchaseDate, bool isListed) {
+            
+            ShippingStatus = shippingStatus;
+            Item = item;
+            Price = price;
+            PurchaseDate = purchaseDate;
+            IsListed = isListed;
+        }
+
     }
 }

@@ -11,7 +11,7 @@ namespace InventoryManager.Services {
     public class InventoryManagerDbContextOptionsFactory:IDesignTimeDbContextFactory<InventoryManagerDbContext> {
         public InventoryManagerDbContext CreateDbContext(string[] args = null) {
             var options = new DbContextOptionsBuilder<InventoryManagerDbContext>();
-            options.UseSqlServer("Server=.\\SQLEXPRESS;Database=ItemsDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+            options.UseSqlite("Data Source=inventoryManager.db");
 
             return new InventoryManagerDbContext(options.Options);
         }

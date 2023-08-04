@@ -17,9 +17,13 @@
         <DataTemplate DataType="{x:Type vms:ExpensesViewModel}">
             <views:ExpensesView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vms:AddFormViewModel}">
+            <views:AddView />
+        </DataTemplate>
         <DataTemplate DataType="{x:Type vms:LayoutViewModel}">
             <components:LayoutComponent />
         </DataTemplate>
+       
         <DataTemplate DataType="{x:Type vms:HistoryViewModel}">
             <views:HistoryView />
         </DataTemplate>

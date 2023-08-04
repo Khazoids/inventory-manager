@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,8 +19,10 @@ namespace InventoryManager.Views {
     /// Interaction logic for AddView.xaml
     /// </summary>
     public partial class AddView:UserControl {
+    
         public AddView() {
             InitializeComponent();
         }
+   
     }
 }

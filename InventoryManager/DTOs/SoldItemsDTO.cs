@@ -13,10 +13,13 @@ namespace InventoryManager.DTOs
         [Key]
         public Guid Id { get; set; }
         // public List<ItemsDTO> Items { get; set; }
-        public string ItemName { get; set; }
-        public string ItemType { get; set; }
+        [Required]
+        public ItemsDTO Item { get; set; }
+        [Required]
         public string ShippingStatus { get; set; }
+        [Required]
         public decimal Price { get; set; }
-        public DateOnly SaleDate { get; set; }
+        [Required]
+        public DateTime SaleDate { get; set; }
     }
 }

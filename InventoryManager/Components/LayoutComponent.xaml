@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
 
         <local:NavigationBarComponent Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" DataContext="{Binding NavigationBarViewModel}" />
-        <local:SearchBarComponent Grid.Column="1" Grid.Row="0" DataContext="{Binding SearchBarViewModel}"/>
+        <local:SearchBarComponent Grid.Column="1" Grid.Row="0" DataContext="{Binding SearchBarViewModel}" BorderBrush="Lavender" BorderThickness="0 0 0 1"/>
 
         
         <ContentControl Content="{Binding ContentViewModel}" 

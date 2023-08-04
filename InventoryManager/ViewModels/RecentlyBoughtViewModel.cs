@@ -14,20 +14,20 @@ namespace InventoryManager.ViewModels {
         private readonly InventoryModel _inventory;
         public IEnumerable<BoughtItemsViewModel> BoughtItems => _boughtItems;
 
-        public ICommand LoadBoughtItemsCommand { get; }
+        public ICommand LoadRecentlyBoughtItemsCommand { get; }
 
         public RecentlyBoughtViewModel(InventoryModel inventory) {
             _inventory = inventory;
             _boughtItems = new ObservableCollection<BoughtItemsViewModel>();
 
-            LoadBoughtItemsCommand = new LoadBoughtItemsCommand(this, inventory);
+            LoadRecentlyBoughtItemsCommand = new LoadRecentlyBoughtItemsCommand(inventory, this);
 
         }
 
         public static RecentlyBoughtViewModel LoadViewModel(InventoryModel inventory) {
             RecentlyBoughtViewModel viewModel = new RecentlyBoughtViewModel(inventory);
 
-            viewModel.LoadBoughtItemsCommand.Execute(null);
+            viewModel.LoadRecentlyBoughtItemsCommand.Execute(null);
 
             return viewModel;
         }

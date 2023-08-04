@@ -16,7 +16,9 @@ namespace InventoryManager.DTOs
         
         [Key]
         public Guid Id { get; set; }
+        [Required]
         public string ItemName { get; set; }
+        [Required]
         public string ItemType { get; set; }
 
         public ItemsDTO(string itemName, string itemType) {

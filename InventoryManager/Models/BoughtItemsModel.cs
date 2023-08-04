@@ -12,13 +12,15 @@ namespace InventoryManager.Models {
         public ItemsModel Item { get; set; }
 
         public decimal Price { get; set; }
-        public DateOnly PurchaseDate { get; set; }
+        public DateTime PurchaseDate { get; set; }
         public bool IsListed { get; set; }
 
         public IEnumerable<ItemsModel> GetAllBoughtItems(string name) {
             return _items.Where(r => r.ItemName == name);
         }
-        public BoughtItemsModel(string shippingStatus, ItemsModel item, decimal price, DateOnly purchaseDate, bool isListed) {
+
+        
+        public BoughtItemsModel(string shippingStatus, ItemsModel item, decimal price, DateTime purchaseDate, bool isListed) {
             ShippingStatus = shippingStatus;
             Item = item;
             Price = price;

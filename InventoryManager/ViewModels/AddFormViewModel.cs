@@ -1,4 +1,5 @@
 ﻿using InventoryManager.Commands;
+using InventoryManager.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,21 +18,21 @@ namespace InventoryManager.ViewModels {
             }
         }
 
-        private string _category;
-        public string Category { 
-            get { return _category; }
+        private string _itemType;
+        public string ItemType { 
+            get { return _itemType; }
             set {
-                _category = value;
-                OnPropertyChanged(nameof(Category));  
+                _itemType = value;
+                OnPropertyChanged(nameof(ItemType));  
             }
         }
 
-        private string _status;
-        public string Status {
-            get { return _status; }
+        private string _shippingStatus;
+        public string ShippingStatus {
+            get { return _shippingStatus; }
             set {
-                _status = value;
-                OnPropertyChanged(nameof(Status));
+                _shippingStatus = value;
+                OnPropertyChanged(nameof(ShippingStatus));
             }
         }
 
@@ -67,8 +68,8 @@ namespace InventoryManager.ViewModels {
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
 
-        public AddFormViewModel() {
-            SubmitCommand = new CreateItemCommand();
+        public AddFormViewModel(InventoryModel inventory) {
+            SubmitCommand = new CreateBoughtItemCommand(inventory, this);
         }
     }
 }

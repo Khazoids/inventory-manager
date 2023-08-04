@@ -14,19 +14,21 @@ namespace InventoryManager.ViewModels {
         public ICommand NavigateInventoryCommand { get; }
         public ICommand NavigateHistoryCommand { get; }
         public ICommand NavigateExpensesCommand { get; }
+        public ICommand NavigateAddFormCommand { get; }
 
         public NavigationBarViewModel(
             INavigationService<HomeViewModel> homeNavigation,
             INavigationService<InventoryViewModel> inventoryNavigation,
             INavigationService<HistoryViewModel> historyNavigation,
-            INavigationService<ExpensesViewModel> expensesNavigation
+            INavigationService<ExpensesViewModel> expensesNavigation,
+            INavigationService<AddFormViewModel> addFormNavigation
             ) {
 
             NavigateHomeCommand = new NavigateCommand<HomeViewModel>(homeNavigation);
             NavigateInventoryCommand = new NavigateCommand<InventoryViewModel>(inventoryNavigation);
             NavigateHistoryCommand = new NavigateCommand<HistoryViewModel>(historyNavigation);
             NavigateExpensesCommand = new NavigateCommand<ExpensesViewModel>(expensesNavigation);
-            
+            NavigateAddFormCommand = new NavigateCommand<AddFormViewModel>(addFormNavigation);
         }
     }
 }

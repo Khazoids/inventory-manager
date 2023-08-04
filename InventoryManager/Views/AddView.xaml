@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:InventoryManager.Views" xmlns:viewmodels="clr-namespace:InventoryManager.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:AddFormViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="DarkGray">
-        <Grid Background="DarkGray">
+    <Grid>
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -26,19 +26,19 @@
                     Text="{Binding ItemName, UpdateSourceTrigger=PropertyChanged}"
                     />
                 <Label
-                   Content="Category"
+                   Content="Item Type"
                    Margin="20 0 0 0"
                    />
                 <WrapPanel HorizontalAlignment="Left">
                     <TextBox
                         Width="250"
                         Margin="20 0 0 0"
-                        Text="{Binding Category, UpdateSourceTrigger=PropertyChanged}"
+                        Text="{Binding ItemType, UpdateSourceTrigger=PropertyChanged}"
                         />
                     <Button
-                        Content="New Category"
-                        Width="100"
-                        Margin="20 0 0 0"
+                        Content="New Type"
+                        Width="75"
+                        Margin="20 10 0 0"
                         Command="{Binding AddCategoryCommand}"
                         />
                 </WrapPanel>
@@ -50,12 +50,12 @@
                     <TextBox
                         Width="250"
                         Margin="20 0 0 0"
-                        Text="{Binding Status, UpdateSourceTrigger=PropertyChanged}"
+                        Text="{Binding ShippingStatus, UpdateSourceTrigger=PropertyChanged}"
                         />
                     <Button
                         Content="New Status"
-                        Width="100"
-                        Margin="20 0 0 0"
+                        Width="75"
+                        Margin="20 10 0 0"
                         Command="{Binding AddStatusCommand}"
                         />
                 </WrapPanel>
@@ -78,6 +78,7 @@
                     Width="125"
                     Margin="20 0 0 0"
                     Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"
+                   
                     />
             </StackPanel>
             <Button
