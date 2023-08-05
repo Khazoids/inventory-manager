@@ -6,6 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+ * This class represents the code-behind for our layout view.
+ * The layout aims to remove duplicate code wby encapsulating parts of our views that remain constant throughout the app into this view model.
+ */
 namespace InventoryManager.Services
 {
     public class LayoutNavigationService<TViewModel> : INavigationService<TViewModel> where TViewModel : ViewModelBase

@@ -7,6 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
+/*
+ * Creates a BoughtItemDTO and asynchronously adds it to the database.
+ * Navigation properties will also create a corresponding ItemsModel in the Items table.
+ */
 namespace InventoryManager.Commands {
     public class CreateBoughtItemCommand:AsyncCommandBase {
         private readonly InventoryModel _inventory;
@@ -15,7 +19,7 @@ namespace InventoryManager.Commands {
             _inventory = inventory;
             _addFormViewModel = addFormViewModel;
         }
-        public override async Task ExecuteAsync(object parameter) {
+        public override async Task ExecuteAsync(object parameter) { // TODO: Validate whether a duplicate item exists before completing insertion
             BoughtItemsModel boughtItem = new BoughtItemsModel(
                 _addFormViewModel.ShippingStatus,
                 new ItemsModel(_addFormViewModel.ItemName, _addFormViewModel.ItemType),

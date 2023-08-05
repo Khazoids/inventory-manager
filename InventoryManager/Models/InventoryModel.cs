@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+ * This domain model represents the application iteself. This model incorporates CRUD methods that is then visually represented in the application.
+ */
 namespace InventoryManager.Models {
     public class InventoryModel {
         private readonly IItemProvider _itemProvider;

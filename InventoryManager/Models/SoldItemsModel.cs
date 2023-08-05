@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace InventoryManager.Models {
     public class SoldItemsModel: DomainObject {
-        // public int Id { get; set; }
-        public string ShippingStatus { get; set; }
-        public ItemsModel Item { get; set; }
-        public decimal Price { get; set; }
-        public DateTime SaleDate { get; set; }
+        
+        public string ShippingStatus { get; }
+        public ItemsModel Item { get; }
+        public decimal Price { get; }
+        public DateTime SaleDate { get; }
 
         public SoldItemsModel(string shippingStatus, ItemsModel item, decimal price, DateTime saleDate) {
             ShippingStatus = shippingStatus;

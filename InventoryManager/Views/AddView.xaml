@@ -67,7 +67,8 @@
                     HorizontalAlignment="Left"
                     Width="125"
                     Margin="20 0 0 0"
-                    Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}"
+                    Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"
+                    PreviewTextInput="PreviewTextInputHandler"
                     />
                 <Label
                     Content="Price Per Unit"
@@ -77,8 +78,8 @@
                     HorizontalAlignment="Left"
                     Width="125"
                     Margin="20 0 0 0"
-                    Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"
-                   
+                    Text="{Binding Price, UpdateSourceTrigger=PropertyChanged,TargetNullValue=''}"
+                    PreviewTextInput="PreviewTextInputHandler"
                     />
             </StackPanel>
             <Button

@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace InventoryManager.Models {
     public class BoughtItemsModel : DomainObject {
-        // public int Id { get; set; }
         private readonly List<ItemsModel> _items;
-        public string ShippingStatus { get; set; }
-        public ItemsModel Item { get; set; }
+        public string ShippingStatus { get; }
+        public ItemsModel Item { get;}
 
-        public decimal Price { get; set; }
-        public DateTime PurchaseDate { get; set; }
-        public bool IsListed { get; set; }
+        public decimal Price { get; }
+        public DateTime PurchaseDate { get; }
+        public bool IsListed { get; }
 
         public IEnumerable<ItemsModel> GetAllBoughtItems(string name) {
             return _items.Where(r => r.ItemName == name);

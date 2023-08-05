@@ -6,6 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+ * This class implements all the methods needed to asynchronously create and insert items into the itemsDB.
+ * Data is stored in our models which is then mapped to DTOs before being inserted into the DB.
+ */
 namespace InventoryManager.Services.ItemsCreator {
     public class DatabaseItemCreator:IItemCreator {
 

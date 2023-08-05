@@ -7,12 +7,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
+/*
+ * Asynchronously looads all items from the BoughtItems table from the ItemsDB
+ */
 namespace InventoryManager.Commands {
     public class LoadBoughtItemsCommand : AsyncCommandBase {
-        private readonly RecentlyBoughtViewModel _viewModel;
+        private readonly InventoryViewModel _viewModel;
         private readonly InventoryModel _inventory;
 
-        public LoadBoughtItemsCommand(RecentlyBoughtViewModel viewModel, InventoryModel inventory) {
+        public LoadBoughtItemsCommand(InventoryViewModel viewModel, InventoryModel inventory) {
             _viewModel = viewModel;
             _inventory = inventory;
         }

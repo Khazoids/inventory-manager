@@ -51,17 +51,27 @@ namespace InventoryManager {
 
         private INavigationService<ExpensesViewModel> CreateExpensesNavigationService()
         {
-            return new LayoutNavigationService<ExpensesViewModel>(_navigationStore, () => new ExpensesViewModel(), CreateNavigationBarViewModel, CreateSearchBarViewModel);
+            return new LayoutNavigationService<ExpensesViewModel>(
+                _navigationStore,
+                () => new ExpensesViewModel(),
+                CreateNavigationBarViewModel,
+                CreateSearchBarViewModel);
         }
 
         private INavigationService<HistoryViewModel> CreateHistoryNavigationService()
         {
-            return new LayoutNavigationService<HistoryViewModel>(_navigationStore, () => new HistoryViewModel(), CreateNavigationBarViewModel, CreateSearchBarViewModel);
+            return new LayoutNavigationService<HistoryViewModel>(_navigationStore,
+                () => new HistoryViewModel(),
+                CreateNavigationBarViewModel,
+                CreateSearchBarViewModel);
         }
 
         private INavigationService<InventoryViewModel> CreateInventoryNavigationService()
         {
-            return new LayoutNavigationService<InventoryViewModel>(_navigationStore, () => new InventoryViewModel(), CreateNavigationBarViewModel, CreateSearchBarViewModel);
+            return new LayoutNavigationService<InventoryViewModel>(_navigationStore,
+                () => InventoryViewModel.LoadViewModel(_inventory),
+                CreateNavigationBarViewModel,
+                CreateSearchBarViewModel);
         }
 
         private INavigationService<HomeViewModel> CreateHomeNavigationService()

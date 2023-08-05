@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+ * This interface provides all the required methods for this application to retrieve data from the SQL database.
+ */
 namespace InventoryManager.Services.ItemProviders {
     public interface IItemProvider {
         Task<IEnumerable<ItemsModel>> GetAllItems();

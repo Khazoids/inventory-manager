@@ -7,6 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+ * This class implements methods to retrieve data from the ItemsDB.
+ * Data is stored in the form of a DTO which is then mapped to our models.
+ */
+
 namespace InventoryManager.Services.ItemProviders {
     public class DatabaseItemProvider:IItemProvider {
 

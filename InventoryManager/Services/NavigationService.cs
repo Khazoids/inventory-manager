@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+ * This class implements all the methods required for navigation in the application
+ */
 namespace InventoryManager.Services {
     public class NavigationService<TViewModel> : INavigationService<TViewModel>
         where TViewModel : ViewModelBase {
