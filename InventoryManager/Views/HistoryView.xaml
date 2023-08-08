@@ -3,10 +3,127 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:InventoryManager.Views"
+             xmlns:local="clr-namespace:InventoryManager.Views" xmlns:converters="clr-namespace:InventoryManager.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <converters:SaleOrPurchaseConverter x:Key="SaleOrPurchaseConverter" />
+    </UserControl.Resources>
     <Grid>
-        <TextBlock Text="History View" />
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Column="0" HorizontalAlignment="Left">
+            <WrapPanel>
+                <Label
+                    Margin="20 10 10 10"
+                    Content="Total Items:   450" />
+            </WrapPanel>
+            <WrapPanel>
+                <Label
+                    Margin="20 10 10 10"
+                    Content="Total Value:     $301.50" />
+            </WrapPanel>
+        </DockPanel>
+
+        <DockPanel Grid.Column="1" HorizontalAlignment="Right">
+            <WrapPanel>
+                <Label 
+                    Content="Show Last: " 
+                    Margin="10"/>
+                <ComboBox
+                    Width="75"
+                    Height="15"
+                    Margin="0 0 50 0">
+                    <ComboBoxItem Content="30 days" />
+                    <ComboBoxItem Content="60 days" />
+                    <ComboBoxItem Content="90 days" />
+                    <ComboBoxItem Content="Custom Range" />
+                </ComboBox>
+                <Label
+                    Content="Sort By: "
+                    Margin="0 10 0 0" />
+                <ComboBox
+                    Width="75"
+                    Height="15"
+                    Margin="0 10 20 10">
+
+                </ComboBox>
+            </WrapPanel>
+        </DockPanel>
+        
+        <ListView 
+            Grid.Row="1"
+          
+            ItemsSource="{Binding ItemsCollection}"
+            
+            BorderBrush="DarkGray"
+            BorderThickness="0">
+            
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="20 0 20 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="{Binding ItemName}" />
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <PriorityBinding>
+                                        <Binding Path="PurchaseDate" />
+                                        <Binding Path="SaleDate" />
+                                    </PriorityBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+
+                            <TextBlock Foreground="Red" Text="{Binding PurchasePrice, FallbackValue=''}" >
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="">
+                                                <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+
+                            <TextBlock Foreground="Green" Text="{Binding SalePrice, FallbackValue=''}" >
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="">
+                                                <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" HorizontalAlignment="Right">
+                            <TextBlock HorizontalAlignment="Left" Text="{Binding ItemType}" />
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </UserControl>

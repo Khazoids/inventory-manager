@@ -12,7 +12,6 @@ namespace InventoryManager.DTOs
     {
         [Key]
         public Guid Id { get; set; }
-        // public List<ItemsDTO> Items { get; set; }
         [Required]
         public ItemsDTO Item { get; set; }
         [Required]
@@ -21,5 +20,14 @@ namespace InventoryManager.DTOs
         public decimal Price { get; set; }
         [Required]
         public DateTime SaleDate { get; set; }
+
+        public SoldItemsDTO() { }
+        public SoldItemsDTO(ItemsDTO item, string shippingStatus, decimal price, DateTime saleDate)
+        {
+            Item = item;
+            ShippingStatus = shippingStatus;
+            Price = price;
+            SaleDate = saleDate;
+        }
     }
 }

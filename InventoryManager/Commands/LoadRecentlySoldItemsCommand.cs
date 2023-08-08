@@ -26,7 +26,7 @@ namespace InventoryManager.Commands
         public override async Task ExecuteAsync(object parameter) // TODO: implement method that takes date input from user and loads items between now and date range
         {
             IEnumerable<SoldItemsModel> soldItems = await _inventory.GetRecentlySoldItems();
-            
+            _viewModel.UpdateItems(soldItems);
         }
     }
 }

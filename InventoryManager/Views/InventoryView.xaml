@@ -71,7 +71,7 @@
                         <StackPanel Grid.Column="0">
                             <TextBlock Text="{Binding ItemName}" />
                             <TextBlock Text="{Binding PurchaseDate}" />
-                            <TextBlock Text="{Binding Price}" />
+                            <TextBlock Text="{Binding PurchasePrice}" />
                         </StackPanel>
                         <StackPanel Grid.Column="1" HorizontalAlignment="Right">
                             <TextBlock HorizontalAlignment="Left" Text="{Binding ItemType}" />

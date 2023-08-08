@@ -61,7 +61,7 @@ namespace InventoryManager {
         private INavigationService<HistoryViewModel> CreateHistoryNavigationService()
         {
             return new LayoutNavigationService<HistoryViewModel>(_navigationStore,
-                () => new HistoryViewModel(),
+                () => HistoryViewModel.LoadViewModel(_inventory),
                 CreateNavigationBarViewModel,
                 CreateSearchBarViewModel);
         }

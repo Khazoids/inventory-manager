@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 
 /*
  * This domain model represents the application iteself. This model incorporates CRUD methods that is then visually represented in the application.
@@ -20,7 +21,7 @@ namespace InventoryManager.Models {
             _itemCreator = itemCreator;
         }
 
-        public async Task<IEnumerable<ItemsModel>> GetAllItems() {
+        public async Task<CompositeCollection> GetAllItems() {
             return await _itemProvider.GetAllItems();
         }
 
@@ -31,6 +32,11 @@ namespace InventoryManager.Models {
         public async Task CreateBoughtItem(BoughtItemsModel boughtItem) {
             await _itemCreator.CreateBoughtItem(boughtItem);
         }
+
+        public async Task CreateSoldItem(SoldItemsModel soldItem)
+        {
+            await _itemCreator.CreateSoldItem(soldItem);
+        }
         public async Task<IEnumerable<BoughtItemsModel>> GetAllBoughtItems() {
             return await _itemProvider.GetAllBoughtItems();
         }
@@ -40,10 +46,16 @@ namespace InventoryManager.Models {
             return await _itemProvider.GetRecentlyBoughtItems();
         }
 
+        public async Task<IEnumerable<SoldItemsModel>> GetAllSoldItems()
+        {
+            return await _itemProvider.GetAllSoldItems();
+        }
+
         public async Task<IEnumerable<SoldItemsModel>> GetRecentlySoldItems()
         {
             return await _itemProvider.GetRecentlySoldItems();
         }
+
 
     }
 }

@@ -1,11 +1,14 @@
 ﻿using InventoryManager.DTOs;
 using InventoryManager.Models;
+using InventoryManager.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 
 /*
  * This class implements methods to retrieve data from the ItemsDB.
@@ -20,12 +23,23 @@ namespace InventoryManager.Services.ItemProviders {
         public DatabaseItemProvider(InventoryManagerDbContextFactory dbContextFactory) {
             _dbContextFactory = dbContextFactory;
         }
-        public async Task<IEnumerable<ItemsModel>> GetAllItems() {
-            using (InventoryManagerDbContext context = _dbContextFactory.CreateDbContext()) {
-                IEnumerable<ItemsDTO> itemDTOs = await context.Items.ToListAsync();
+        
+        public async Task<CompositeCollection> GetAllItems()
+        {   
+            
+            CompositeCollection compositeCollection = new CompositeCollection();
 
-                return itemDTOs.Select(i => new ItemsModel(i.ItemName, i.ItemType));
-            }
+            Task<IEnumerable<BoughtItemsModel>> boughtItems = GetAllBoughtItems();
+            Task<IEnumerable<SoldItemsModel>> soldItems = GetAllSoldItems();
+
+            
+
+            await Task.WhenAll(boughtItems, soldItems);
+
+            compositeCollection.Add(boughtItems);
+            compositeCollection.Add(soldItems);
+
+            return compositeCollection;
         }
 
        public async Task<IEnumerable<BoughtItemsModel>> GetAllBoughtItems() {

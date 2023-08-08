@@ -34,7 +34,7 @@ namespace InventoryManager.Services.ItemsCreator {
                 BoughtItemsDTO boughtItemDTO = new BoughtItemsDTO(
                     boughtItem.ShippingStatus,
                     new ItemsDTO(boughtItem.Item.ItemName, boughtItem.Item.ItemType),
-                    boughtItem.Price,
+                    boughtItem.PurchasePrice,
                     boughtItem.PurchaseDate,
                     boughtItem.IsListed
                     );
@@ -44,22 +44,17 @@ namespace InventoryManager.Services.ItemsCreator {
             }
         }
         
-
-        public async Task CreateBoughtItem(BoughtItemsModel boughtItem, string itemName, string itemType)
+        public async Task CreateSoldItem(SoldItemsModel soldItem)
         {
             using (InventoryManagerDbContext context = _dbContextFactory.CreateDbContext())
             {
-                ItemsDTO itemDTO = new ItemsDTO(itemName, itemType);
+                SoldItemsDTO soldItemDTO = new SoldItemsDTO(
+                    new ItemsDTO(soldItem.Item.ItemName, soldItem.Item.ItemType),
+                    soldItem.ShippingStatus,
+                    soldItem.SalePrice,
+                    soldItem.SaleDate);
 
-                BoughtItemsDTO boughtItemDTO = new BoughtItemsDTO(
-                    boughtItem.ShippingStatus,
-                    itemDTO,
-                    boughtItem.Price,
-                    boughtItem.PurchaseDate,
-                    boughtItem.IsListed);
-
-                context.BoughtItems.Add(boughtItemDTO);
-                context.Items.Add(itemDTO);
+                context.SoldItems.Add(soldItemDTO); 
                 await context.SaveChangesAsync();
             }
         }

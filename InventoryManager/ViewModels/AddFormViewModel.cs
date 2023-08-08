@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Navigation;
 
 namespace InventoryManager.ViewModels {
     public class AddFormViewModel:ViewModelBase {
@@ -45,8 +47,10 @@ namespace InventoryManager.ViewModels {
             }
         }
 
-        private decimal _price;
-        public decimal Price {
+      
+        
+        private string _price;
+        public string Price {
             get { return _price; }
             set {
                 _price = value;
@@ -54,7 +58,7 @@ namespace InventoryManager.ViewModels {
             }
         }
 
-        private DateTime _purchaseDate;
+        private DateTime _purchaseDate = DateTime.Now;
         public DateTime PurchaseDate {
             get { return _purchaseDate; }
             set {
@@ -63,13 +67,25 @@ namespace InventoryManager.ViewModels {
             }
         }
 
+        private string _transactionType = "Purchase";
+        public string TransactionType
+        {
+            get { return _transactionType; }
+            set { 
+            _transactionType = value;
+            OnPropertyChanged(nameof(TransactionType));
+            }
+        }
+
+
+        public Func<CreateItemCommand> CreateCommand { get; set; }
         public ICommand AddStatusCommand { get; }
         public ICommand AddCategoryCommand { get; }
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
-
+        
         public AddFormViewModel(InventoryModel inventory) {
-            SubmitCommand = new CreateBoughtItemCommand(inventory, this);
+            SubmitCommand = new CreateItemCommand(inventory, this, () => TransactionType );
         }
     }
 }
