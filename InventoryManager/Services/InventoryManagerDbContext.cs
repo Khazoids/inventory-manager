@@ -15,6 +15,8 @@ namespace InventoryManager.Services {
         public DbSet<BoughtItemsDTO> BoughtItems { get; set; }
 
         public DbSet<SoldItemsDTO> SoldItems { get; set; }
+        public DbSet<ItemTypeDTO> ItemTypes { get; set; }
+        public DbSet<ItemStatusDTO> ItemStatuses { get; set; }
 
         public InventoryManagerDbContext(DbContextOptions options) : base(options) { }
         protected override void ConfigureConventions(ModelConfigurationBuilder builder) {

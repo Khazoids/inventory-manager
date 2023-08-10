@@ -1,5 +1,8 @@
 ﻿using InventoryManager.Commands;
 using InventoryManager.Models;
+using InventoryManager.Services;
+using InventoryManager.Services.NavigationServices;
+using InventoryManager.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -77,15 +80,19 @@ namespace InventoryManager.ViewModels {
             }
         }
 
-
-        public Func<CreateItemCommand> CreateCommand { get; set; }
-        public ICommand AddStatusCommand { get; }
-        public ICommand AddCategoryCommand { get; }
+        
+        public ICommand NavigateAddItemTypeDialog { get; }
+        public ICommand NavigateAddItemStatusDialog { get; }
+        
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
         
-        public AddFormViewModel(InventoryModel inventory) {
+        public AddFormViewModel(InventoryModel inventory, INavigationService<AddItemTypeViewModel> addItemTypeModalNavigation, INavigationService<AddItemStatusViewModel> addItemStatusModalNavigation) {
+            
             SubmitCommand = new CreateItemCommand(inventory, this, () => TransactionType );
+            NavigateAddItemTypeDialog = new NavigateCommand<AddItemTypeViewModel>(addItemTypeModalNavigation);
+            NavigateAddItemStatusDialog = new NavigateCommand<AddItemStatusViewModel>(addItemStatusModalNavigation);
+            
         }
     }
 }

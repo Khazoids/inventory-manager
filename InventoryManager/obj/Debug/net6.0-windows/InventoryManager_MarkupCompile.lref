@@ -6,7 +6,10 @@ FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Components\Recent
 FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Components\RecentlySoldComponent.xaml;;
 FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Components\SearchBarComponent.xaml;;
 FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Components\SummaryComponent.xaml;;
+FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Components\TextSubmissionModalComponent.xaml;;
 FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\MainWindow.xaml;;
+FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Views\AddItemStatusViewModal.xaml;;
+FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Views\AddItemTypeViewModal.xaml;;
 FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Views\AddView.xaml;;
 FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Views\EditView.xaml;;
 FC:\Users\Phill\source\repos\InventoryManager\InventoryManager\Views\ExpensesView.xaml;;

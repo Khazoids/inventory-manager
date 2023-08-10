@@ -6,27 +6,41 @@
         xmlns:vms="clr-namespace:InventoryManager.ViewModels" xmlns:components="clr-namespace:InventoryManager.Components"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <ContentControl Content="{Binding CurrentViewModel}" />
-    <ContentControl.Resources>
-        <DataTemplate DataType="{x:Type vms:HomeViewModel}">
-            <views:HomeView />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vms:InventoryViewModel}">
-            <views:InventoryView />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vms:ExpensesViewModel}">
-            <views:ExpensesView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vms:AddFormViewModel}">
-            <views:AddView />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vms:LayoutViewModel}">
-            <components:LayoutComponent />
-        </DataTemplate>
-       
-        <DataTemplate DataType="{x:Type vms:HistoryViewModel}">
-            <views:HistoryView />
-        </DataTemplate>
-        
-    </ContentControl.Resources> 
+
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vms:HomeViewModel}">
+                <views:HomeView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:InventoryViewModel}">
+                <views:InventoryView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:ExpensesViewModel}">
+                <views:ExpensesView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:AddFormViewModel}">
+                <views:AddView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:LayoutViewModel}">
+                <components:LayoutComponent />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:HistoryViewModel}">
+                <views:HistoryView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:AddItemTypeViewModel}">
+                <views:AddItemTypeViewModal />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:AddItemStatusViewModel}">
+                <views:AddItemStatusViewModal />
+            </DataTemplate>
+        </Grid.Resources>
+
+        <components:TextSubmissionModalComponent Panel.ZIndex="10" IsOpen="True">
+            <ContentControl Content="{Binding CurrentModalViewModel}" />
+        </components:TextSubmissionModalComponent>
+        <ContentControl Content="{Binding CurrentViewModel}" />
+    </Grid>
+    
+    
+    
 </Window>
