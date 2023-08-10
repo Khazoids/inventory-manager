@@ -1,11 +1,16 @@
 ﻿using InventoryManager.Commands;
 using InventoryManager.Models;
+using InventoryManager.Services;
+using InventoryManager.Services.NavigationServices;
+using InventoryManager.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Navigation;
 
 namespace InventoryManager.ViewModels {
     public class AddFormViewModel:ViewModelBase {
@@ -45,8 +50,10 @@ namespace InventoryManager.ViewModels {
             }
         }
 
-        private decimal _price;
-        public decimal Price {
+      
+        
+        private string _price;
+        public string Price {
             get { return _price; }
             set {
                 _price = value;
@@ -54,7 +61,7 @@ namespace InventoryManager.ViewModels {
             }
         }
 
-        private DateTime _purchaseDate;
+        private DateTime _purchaseDate = DateTime.Now;
         public DateTime PurchaseDate {
             get { return _purchaseDate; }
             set {
@@ -63,13 +70,29 @@ namespace InventoryManager.ViewModels {
             }
         }
 
-        public ICommand AddStatusCommand { get; }
-        public ICommand AddCategoryCommand { get; }
+        private string _transactionType = "Purchase";
+        public string TransactionType
+        {
+            get { return _transactionType; }
+            set { 
+            _transactionType = value;
+            OnPropertyChanged(nameof(TransactionType));
+            }
+        }
+
+        
+        public ICommand NavigateAddItemTypeDialog { get; }
+        public ICommand NavigateAddItemStatusDialog { get; }
+        
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
-
-        public AddFormViewModel(InventoryModel inventory) {
-            SubmitCommand = new CreateBoughtItemCommand(inventory, this);
+        
+        public AddFormViewModel(InventoryModel inventory, INavigationService<AddItemTypeViewModel> addItemTypeModalNavigation, INavigationService<AddItemStatusViewModel> addItemStatusModalNavigation) {
+            
+            SubmitCommand = new CreateItemCommand(inventory, this, () => TransactionType );
+            NavigateAddItemTypeDialog = new NavigateCommand<AddItemTypeViewModel>(addItemTypeModalNavigation);
+            NavigateAddItemStatusDialog = new NavigateCommand<AddItemStatusViewModel>(addItemStatusModalNavigation);
+            
         }
     }
 }

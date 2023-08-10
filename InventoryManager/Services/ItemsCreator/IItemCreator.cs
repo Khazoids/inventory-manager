@@ -13,5 +13,7 @@ namespace InventoryManager.Services.ItemsCreator {
         Task CreateItem(ItemsModel item);
 
         Task CreateBoughtItem(BoughtItemsModel item);
+
+        Task CreateSoldItem(SoldItemsModel item);
     }
 }

@@ -9,12 +9,21 @@ InventoryManager
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+<<<<<<< HEAD
 C:\Users\Phill\Source\Repos\inventory-manager\InventoryManager\App.xaml
 14169339981
 
 68-1453070057
 212974356585
 Components\LayoutComponent.xaml;Components\NavigationBarComponent.xaml;Components\RecentlyBoughtComponent.xaml;Components\RecentlySoldComponent.xaml;Components\SearchBarComponent.xaml;Components\SummaryComponent.xaml;MainWindow.xaml;Views\AddView.xaml;Views\EditView.xaml;Views\ExpensesView.xaml;Views\HistoryView.xaml;Views\HomeView.xaml;Views\InventoryView.xaml;Views\MainView.xaml;
+=======
+C:\Users\Phill\source\repos\InventoryManager\InventoryManager\App.xaml
+17-612556866
 
-True
+87-922161109
+2121942715201
+Components\LayoutComponent.xaml;Components\NavigationBarComponent.xaml;Components\RecentlyBoughtComponent.xaml;Components\RecentlySoldComponent.xaml;Components\SearchBarComponent.xaml;Components\SummaryComponent.xaml;Components\TextSubmissionModalComponent.xaml;MainWindow.xaml;Views\AddItemStatusViewModal.xaml;Views\AddItemTypeViewModal.xaml;Views\AddView.xaml;Views\EditView.xaml;Views\ExpensesView.xaml;Views\HistoryView.xaml;Views\HomeView.xaml;Views\InventoryView.xaml;Views\MainView.xaml;
+>>>>>>> fb48f3ac1f1b85e945a65d1950078871c964a6bc
+
+False
 

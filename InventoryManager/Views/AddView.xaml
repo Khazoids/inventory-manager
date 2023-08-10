@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:InventoryManager.Views" xmlns:viewmodels="clr-namespace:InventoryManager.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:AddFormViewModel}"
+             xmlns:local="clr-namespace:InventoryManager.Views" xmlns:viewmodels="clr-namespace:InventoryManager.ViewModels" xmlns:converters="clr-namespace:InventoryManager.Converters" d:DataContext="{d:DesignInstance Type=viewmodels:AddFormViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -22,24 +22,42 @@
                 <TextBox
                     HorizontalAlignment="Left"
                     Width="250"
-                    Margin="20 0 0 0"
+                    Margin="20 0 0 10"
                     Text="{Binding ItemName, UpdateSourceTrigger=PropertyChanged}"
                     />
                 <Label
                    Content="Item Type"
                    Margin="20 0 0 0"
                    />
-                <WrapPanel HorizontalAlignment="Left">
-                    <TextBox
-                        Width="250"
-                        Margin="20 0 0 0"
+                <WrapPanel HorizontalAlignment="Left" >
+                    <ComboBox
+                        Width="155"
+                        MaxDropDownHeight="150"
+                        Margin="20 0 0 10"
                         Text="{Binding ItemType, UpdateSourceTrigger=PropertyChanged}"
-                        />
-                    <Button
+                        VerticalAlignment="Center">
+                        <ComboBoxItem Content="Card" IsSelected="True"/>
+                        <ComboBoxItem Content="Figurine" />
+                        <ComboBoxItem Content="Collectible" />
+                        <ComboBoxItem Content="Consumable" />
+                        <ComboBoxItem Content="Business Supply" />
+                        <ComboBoxItem Content="Business Supply" />
+                        <ComboBoxItem Content="Business Supply" />
+                        <ComboBoxItem Content="Business Supply" />
+                        <ComboBoxItem Content="Business Supply" />
+                        <ComboBoxItem Content="Business Supply" />
+                        <ComboBoxItem Content="Business Supply" />
+                        <ComboBoxItem Content="Business Supply" />
+                        <ComboBoxItem Content="Business Supply" />
+                        <ComboBoxItem Content="Business Supply" />
+                        <ComboBoxItem Content="Business Supply" />
+                    </ComboBox>
+                        <Button
                         Content="New Type"
                         Width="75"
-                        Margin="20 10 0 0"
-                        Command="{Binding AddCategoryCommand}"
+                        Margin="20 0 0 0"
+                        Command="{Binding NavigateAddItemTypeDialog}"
+                        VerticalAlignment="Top"
                         />
                 </WrapPanel>
                 <Label
@@ -47,40 +65,79 @@
                     Margin="20 0 0 0"
                     />
                 <WrapPanel HorizontalAlignment="Left">
-                    <TextBox
-                        Width="250"
-                        Margin="20 0 0 0"
+                    <ComboBox
+                        Width="155"
+                        MaxDropDownHeight="150"
+                        Margin="20 0 0 10"
                         Text="{Binding ShippingStatus, UpdateSourceTrigger=PropertyChanged}"
-                        />
+                        >
+                        <ComboBoxItem Content="Awaiting Shipment" IsSelected="True" />
+                        <ComboBoxItem Content="Shipped" />
+                        <ComboBoxItem Content="Delivered" />
+                        <ComboBoxItem Content="Returned" />
+                        <ComboBoxItem Content="Item Not Delivered" />
+                    </ComboBox>
                     <Button
                         Content="New Status"
                         Width="75"
-                        Margin="20 10 0 0"
-                        Command="{Binding AddStatusCommand}"
+                        Margin="20 0 0 0"
+                        Command="{Binding NavigateAddItemStatusDialog}"
+                        VerticalAlignment="Top"
                         />
                 </WrapPanel>
-                <Label
-                    Content="Quantity"
-                    Margin="20 0 0 0"
-                    />
-                <TextBox
-                    HorizontalAlignment="Left"
-                    Width="125"
-                    Margin="20 0 0 0"
-                    Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"
-                    PreviewTextInput="PreviewTextInputHandler"
-                    />
-                <Label
-                    Content="Price Per Unit"
-                    Margin="20 0 0 0"
-                    />
-                <TextBox
-                    HorizontalAlignment="Left"
-                    Width="125"
-                    Margin="20 0 0 0"
-                    Text="{Binding Price, UpdateSourceTrigger=PropertyChanged,TargetNullValue=''}"
-                    PreviewTextInput="PreviewTextInputHandler"
-                    />
+
+                <StackPanel Margin="20 0 0 0">
+                    <Label
+                        Content="Transaction Details"
+                        />
+                    <WrapPanel Margin="20 0 0 0">
+                        <RadioButton 
+                            Content="Purchase" 
+                            Margin="0 0 10 0" 
+                            IsChecked="{Binding TransactionType, Converter={converters:RadioButtonValueConverter 'Purchase'}}"
+                        />
+                        <RadioButton 
+                            Content="Sale"
+                            Margin="0 0 10 0"
+                            IsChecked="{Binding TransactionType, Converter={converters:RadioButtonValueConverter 'Sale'}}"
+                        />
+                    </WrapPanel>
+                </StackPanel>
+                <StackPanel Margin="20 0 0 0">
+                    <WrapPanel Margin="10 0 0 0">
+                        <Label
+                            Content="Qty"
+                            Margin="10 0 0 0"
+                            Width="80"
+                            />
+                        <TextBox Grid.Row="0" Grid.Column="1"
+                            HorizontalAlignment="Left"
+                            Width="50"
+                            Margin="15 0 0 0"
+                            Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}"
+                            
+                            VerticalAlignment="Center"
+                            />
+                    </WrapPanel>
+                    
+                    <WrapPanel Margin="10 0 0 0">
+                        <Label 
+                            Content="Price Per Unit"
+                            Margin=" 10 0 0 0"
+                                Width="80"
+                            />
+                        <TextBox Grid.Column="1"
+                            HorizontalAlignment="Left"
+                            Width="50"
+                            Margin="15 0 0 0"
+                            MaxLength="10"
+                            Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"
+                            PreviewTextInput="DecimalTextBox_PreviewTextInput"
+                            VerticalAlignment="Center"
+                            
+                        />
+                    </WrapPanel>
+                </StackPanel>
             </StackPanel>
             <Button
                 Content="Submit"

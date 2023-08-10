@@ -3,10 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:InventoryManager.Views"
+             xmlns:local="clr-namespace:InventoryManager.Views" xmlns:converters="clr-namespace:InventoryManager.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <converters:SaleOrPurchaseConverter x:Key="SaleOrPurchaseConverter" />
+    </UserControl.Resources>
     <Grid>
+<<<<<<< HEAD
+=======
+        
+>>>>>>> fb48f3ac1f1b85e945a65d1950078871c964a6bc
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
@@ -50,11 +58,23 @@
                 </ComboBox>
             </WrapPanel>
         </DockPanel>
+<<<<<<< HEAD
         <ListView 
             Grid.Row="1"
             ItemsSource="{Binding Items}"
             BorderBrush="DarkGray"
             BorderThickness="0">
+=======
+        
+        <ListView 
+            Grid.Row="1"
+          
+            ItemsSource="{Binding ItemsCollection}"
+            
+            BorderBrush="DarkGray"
+            BorderThickness="0">
+            
+>>>>>>> fb48f3ac1f1b85e945a65d1950078871c964a6bc
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -70,8 +90,49 @@
 
                         <StackPanel Grid.Column="0">
                             <TextBlock Text="{Binding ItemName}" />
+<<<<<<< HEAD
                             <TextBlock Text="{Binding PurchaseDate}" />
                             <TextBlock Text="{Binding Price}" />
+=======
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <PriorityBinding>
+                                        <Binding Path="PurchaseDate" />
+                                        <Binding Path="SaleDate" />
+                                    </PriorityBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+
+                            <TextBlock Foreground="Red" Text="{Binding PurchasePrice, FallbackValue=''}" >
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="">
+                                                <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+
+                            <TextBlock Foreground="Green" Text="{Binding SalePrice, FallbackValue=''}" >
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="">
+                                                <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+>>>>>>> fb48f3ac1f1b85e945a65d1950078871c964a6bc
                         </StackPanel>
                         <StackPanel Grid.Column="1" HorizontalAlignment="Right">
                             <TextBlock HorizontalAlignment="Left" Text="{Binding ItemType}" />

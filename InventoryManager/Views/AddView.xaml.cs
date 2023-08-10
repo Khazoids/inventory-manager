@@ -18,21 +18,37 @@ namespace InventoryManager.Views {
     /// <summary>
     /// Interaction logic for AddView.xaml
     /// </summary>
-    public partial class AddView:UserControl {
-    
-        public AddView() {
+    public partial class AddView:UserControl
+    {
+
+        public AddView()
+        {
             InitializeComponent();
         }
 
-        private static readonly Regex _regex = new Regex("[^0-9.-]+"); //regex that matches disallowed text
-        private static bool IsTextAllowed(string text)
+        private void DecimalTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
-            return !_regex.IsMatch(text);
+            bool approvedDecimalPoint = false;
+
+
+            if (e.Text == ".")
+            {
+                if (!((TextBox)sender).Text.Contains("."))
+                    approvedDecimalPoint = true;
+            }
+
+            if (!(char.IsDigit(e.Text, e.Text.Length - 1) || approvedDecimalPoint))
+            {
+                e.Handled = true;
+            }
+
+            if (Regex.IsMatch(((TextBox)sender).Text, @"\.\d\d"))
+            {
+                e.Handled = true;
+            }
         }
 
-        private void PreviewTextInputHandler(Object sender, TextCompositionEventArgs e)
-        {
-            e.Handled = !IsTextAllowed(e.Text);
-        }
+
     }
+       
 }

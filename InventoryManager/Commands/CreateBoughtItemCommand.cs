@@ -23,7 +23,7 @@ namespace InventoryManager.Commands {
             BoughtItemsModel boughtItem = new BoughtItemsModel(
                 _addFormViewModel.ShippingStatus,
                 new ItemsModel(_addFormViewModel.ItemName, _addFormViewModel.ItemType),
-                _addFormViewModel.Price,
+                Decimal.Parse(_addFormViewModel.Price),
                 _addFormViewModel.PurchaseDate,
                 false);
 

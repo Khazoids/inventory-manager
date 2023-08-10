@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 
 /*
  * Asynchronously loads all items in the Items table from the ItemsDB
@@ -21,7 +22,17 @@ namespace InventoryManager.Commands {
         }
 
         public override async Task ExecuteAsync(object parameter) {
+<<<<<<< HEAD
             
+=======
+
+            IEnumerable<BoughtItemsModel> boughtItems = await _inventory.GetAllBoughtItems();
+            IEnumerable<SoldItemsModel> soldItems = await _inventory.GetAllSoldItems();
+
+            
+
+            _viewModel.UpdateItems(boughtItems, soldItems);
+>>>>>>> fb48f3ac1f1b85e945a65d1950078871c964a6bc
         }
     }
 }

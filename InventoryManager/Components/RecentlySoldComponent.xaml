@@ -7,22 +7,41 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
-            <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="Recently Sold" />
-            </StackPanel>
-       
-        
+
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <TextBlock Text="Recently Sold" HorizontalAlignment="Stretch"/>
+
+        </StackPanel>
+
         <ListView Grid.Row="1" ItemsSource="{Binding SoldItems}" BorderBrush="DarkGray" BorderThickness="0">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding ItemName}" />
+                    <Grid Margin="20 0 20 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"  />
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" >
+                            <TextBlock Text="{Binding ItemName}" />
+                            <TextBlock Text="{Binding SaleDate}" />
+                            <TextBlock Foreground="Green" Text="{Binding SalePrice}" />
+                        </StackPanel>
+                        <TextBlock HorizontalAlignment="Right" Grid.Column="1" Text="{Binding ItemType}" />
+                    </Grid>
                 </DataTemplate>
-            </ListView.ItemTemplate>            
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </UserControl>

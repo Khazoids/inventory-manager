@@ -25,6 +25,15 @@
     <Compile Update="Components\SummaryComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\TextSubmissionModalComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AddItemStatusViewModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AddItemTypeViewModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\AddView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -66,7 +75,16 @@
     <Page Update="Components\SummaryComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Components\TextSubmissionModalComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AddItemStatusViewModal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AddItemTypeViewModal.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\AddView.xaml">

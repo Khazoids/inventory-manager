@@ -20,6 +20,7 @@ namespace InventoryManager.ViewModels
         {
             _inventory = inventory;
             _soldItems = new ObservableCollection<SoldItemsViewModel>();
+
             LoadRecentlySoldItemsCommand = new LoadRecentlySoldItemsCommand(inventory, this);
         }
 
@@ -27,6 +28,7 @@ namespace InventoryManager.ViewModels
         {
             RecentlySoldViewModel viewModel = new RecentlySoldViewModel(inventory);
 
+            viewModel.LoadRecentlySoldItemsCommand.Execute(null);
             return viewModel;
         }
 

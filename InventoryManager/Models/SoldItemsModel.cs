@@ -9,13 +9,17 @@ namespace InventoryManager.Models {
         
         public string ShippingStatus { get; }
         public ItemsModel Item { get; }
-        public decimal Price { get; }
+        public decimal SalePrice { get; }
         public DateTime SaleDate { get; }
 
-        public SoldItemsModel(string shippingStatus, ItemsModel item, decimal price, DateTime saleDate) {
+        public string formatDecimal()
+        {
+            return String.Concat("+$", SalePrice);
+        }
+        public SoldItemsModel(string shippingStatus, ItemsModel item, decimal salePrice, DateTime saleDate) {
             ShippingStatus = shippingStatus;
             Item = item;
-            Price = price;
+            SalePrice = salePrice;
             SaleDate = saleDate;
         }
     }

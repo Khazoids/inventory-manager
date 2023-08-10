@@ -186,6 +186,7 @@ C:\Users\Phill\source\repos\InventoryManager\InventoryManager\bin\Debug\net6.0-w
 C:\Users\Phill\source\repos\InventoryManager\InventoryManager\bin\Debug\net6.0-windows\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\Phill\source\repos\InventoryManager\InventoryManager\bin\Debug\net6.0-windows\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\Phill\source\repos\InventoryManager\InventoryManager\bin\Debug\net6.0-windows\runtimes\win-x86\native\e_sqlite3.dll
+<<<<<<< HEAD
 C:\Users\Phill\Source\Repos\inventory-manager\InventoryManager\bin\Debug\net6.0-windows\InventoryManager.exe
 C:\Users\Phill\Source\Repos\inventory-manager\InventoryManager\bin\Debug\net6.0-windows\InventoryManager.deps.json
 C:\Users\Phill\Source\Repos\inventory-manager\InventoryManager\bin\Debug\net6.0-windows\InventoryManager.runtimeconfig.json
@@ -282,3 +283,11 @@ C:\Users\Phill\Source\Repos\inventory-manager\InventoryManager\obj\Debug\net6.0-
 C:\Users\Phill\Source\Repos\inventory-manager\InventoryManager\obj\Debug\net6.0-windows\InventoryManager.pdb
 C:\Users\Phill\Source\Repos\inventory-manager\InventoryManager\obj\Debug\net6.0-windows\InventoryManager.genruntimeconfig.cache
 C:\Users\Phill\Source\Repos\inventory-manager\InventoryManager\obj\Debug\net6.0-windows\ref\InventoryManager.dll
+=======
+C:\Users\Phill\source\repos\InventoryManager\InventoryManager\obj\Debug\net6.0-windows\Components\TextSubmissionModalComponent.g.cs
+C:\Users\Phill\source\repos\InventoryManager\InventoryManager\obj\Debug\net6.0-windows\Components\TextSubmissionModalComponent.baml
+C:\Users\Phill\source\repos\InventoryManager\InventoryManager\obj\Debug\net6.0-windows\Views\AddItemStatusViewModal.g.cs
+C:\Users\Phill\source\repos\InventoryManager\InventoryManager\obj\Debug\net6.0-windows\Views\AddItemStatusViewModal.baml
+C:\Users\Phill\source\repos\InventoryManager\InventoryManager\obj\Debug\net6.0-windows\Views\AddItemTypeViewModal.g.cs
+C:\Users\Phill\source\repos\InventoryManager\InventoryManager\obj\Debug\net6.0-windows\Views\AddItemTypeViewModal.baml
+>>>>>>> fb48f3ac1f1b85e945a65d1950078871c964a6bc

@@ -1,7 +1,9 @@
 ﻿using InventoryManager.Models;
 using InventoryManager.Services;
+using InventoryManager.Services.FormEditor;
 using InventoryManager.Services.ItemProviders;
 using InventoryManager.Services.ItemsCreator;
+using InventoryManager.Services.NavigationServices;
 using InventoryManager.Stores;
 using InventoryManager.ViewModels;
 using Microsoft.EntityFrameworkCore;
@@ -20,16 +22,19 @@ namespace InventoryManager {
     public partial class App:Application {
         private const string CONNECTION_STRING = "Data Source=inventoryManager.db";
         private readonly NavigationStore _navigationStore;
+        private readonly ModalNavigationStore _modalNavigationStore;
         private readonly InventoryManagerDbContextFactory _inventoryManagerDbContextFactory;
         private readonly InventoryModel _inventory;
-
+        
         public App() {
             _inventoryManagerDbContextFactory = new InventoryManagerDbContextFactory(CONNECTION_STRING);
             IItemProvider itemProvider = new DatabaseItemProvider(_inventoryManagerDbContextFactory);
             IItemCreator itemCreator = new DatabaseItemCreator(_inventoryManagerDbContextFactory);
+           
 
             _inventory = new InventoryModel(itemProvider, itemCreator);     
             _navigationStore = new NavigationStore();
+            _modalNavigationStore = new ModalNavigationStore();
            
         }
 
@@ -61,7 +66,7 @@ namespace InventoryManager {
         private INavigationService<HistoryViewModel> CreateHistoryNavigationService()
         {
             return new LayoutNavigationService<HistoryViewModel>(_navigationStore,
-                () => new HistoryViewModel(),
+                () => HistoryViewModel.LoadViewModel(_inventory),
                 CreateNavigationBarViewModel,
                 CreateSearchBarViewModel);
         }
@@ -84,8 +89,19 @@ namespace InventoryManager {
 
         private INavigationService<AddFormViewModel> CreateAddFormNavigationService()
         {
-            return new LayoutNavigationService<AddFormViewModel>(_navigationStore, () => new AddFormViewModel(_inventory), CreateNavigationBarViewModel, CreateSearchBarViewModel);
+            return new LayoutNavigationService<AddFormViewModel>(_navigationStore, () => new AddFormViewModel(_inventory, CreateAddItemTypeModalNavigationService(), CreateAddItemStatusModalNavigationService()), CreateNavigationBarViewModel, CreateSearchBarViewModel);
         }
+
+        private INavigationService<AddItemTypeViewModel> CreateAddItemTypeModalNavigationService()
+        {
+            return new ModalNavigationService<AddItemTypeViewModel>(_modalNavigationStore, () => new AddItemTypeViewModel());
+        }
+
+        private INavigationService<AddItemStatusViewModel> CreateAddItemStatusModalNavigationService()
+        {
+            return new ModalNavigationService<AddItemStatusViewModel>(_modalNavigationStore, () => new AddItemStatusViewModel());
+        }
+      
 
         protected override void OnStartup(StartupEventArgs e) {
 
@@ -97,7 +113,7 @@ namespace InventoryManager {
             INavigationService<HomeViewModel> homeNavigation = CreateHomeNavigationService();
             homeNavigation.Navigate();
             MainWindow = new MainWindow() {
-                DataContext = new MainViewModel(_navigationStore)
+                DataContext = new MainViewModel(_navigationStore, _modalNavigationStore)
             };
 
             MainWindow.Show();

@@ -10,6 +10,7 @@
 //------------------------------------------------------------------------------
 
 using InventoryManager.Components;
+using InventoryManager.Converters;
 using InventoryManager.Views;
 using System;
 using System.Diagnostics;
