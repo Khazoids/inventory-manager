@@ -1,10 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\InventoryManager",
-    "\\InventoryManager\\Services",
-    "\\InventoryManager\\Services\\ItemProviders"
+    ""
   ],
-  "SelectedNode": "\\InventoryManager\\Services\\ItemProviders\\DatabaseItemProvider.cs",
   "PreviewInSolutionExplorer": false
 }

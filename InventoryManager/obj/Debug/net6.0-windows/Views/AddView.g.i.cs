@@ -55,7 +55,7 @@ namespace InventoryManager.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/InventoryManager;component/views/addview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/InventoryManager;V1.0.0.0;component/views/addview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\AddView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
