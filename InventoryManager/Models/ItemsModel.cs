@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace InventoryManager.Models {
     public class ItemsModel : DomainObject {
-        // public int Id { get; set; }
         public string ItemName { get; }
         public string ItemType { get; }
+       
 
         public ItemsModel(string itemName, string itemType) {
             ItemName = itemName;

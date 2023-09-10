@@ -16,8 +16,8 @@ namespace InventoryManager.Commands {
     /// </summary>
     public class CreateBoughtItemCommand:AsyncCommandBase {
 
-        private readonly InventoryModel _inventory;
-        private readonly AddFormViewModel _addFormViewModel;
+        private readonly InventoryModel _inventory;    
+        private readonly AddFormViewModel _addFormViewModel;    // view model where the user-passed data will be extracted from
 
         /// <summary>
         /// Two parameter constructor
@@ -32,6 +32,10 @@ namespace InventoryManager.Commands {
         /// <summary>
         /// ExecuteAsync will create a new BoughtItemsModel using the data passed in by the user in the AddForm and the AddFormViewModel.
         /// The model is then passed into the persisting InventoryModel where further commands will be executed to store it into the database.
+        /// 
+        /// If successful, a success message is displayed.
+        /// 
+        /// Otherwise, an error message is displayed.
         /// </summary>
         /// <param name="parameter"></param>
         /// <returns></returns>

@@ -41,6 +41,7 @@ namespace InventoryManager.Commands {
             IEnumerable<SoldItemsModel> soldItems = await _inventory.GetAllSoldItems();
 
             _viewModel.UpdateItems(boughtItems, soldItems);
+
         }
     }
 }
