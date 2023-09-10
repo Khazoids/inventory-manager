@@ -44,7 +44,11 @@ namespace InventoryManager.Services.ItemProviders {
 
        public async Task<IEnumerable<BoughtItemsModel>> GetAllBoughtItems() {
             using (InventoryManagerDbContext context = _dbContextFactory.CreateDbContext()) {
-                IEnumerable<BoughtItemsDTO> boughtItemsDTOs = await context.BoughtItems.Include(i => i.Item).ToListAsync();
+                IEnumerable<BoughtItemsDTO> boughtItemsDTOs = await context
+                    .BoughtItems
+                    .Include(i => i.Item)
+                    .OrderByDescending(i => i.PurchaseDate)
+                    .ToListAsync();
 
                 return boughtItemsDTOs.Select(i => new BoughtItemsModel(
                     i.ShippingStatus, 
@@ -59,7 +63,12 @@ namespace InventoryManager.Services.ItemProviders {
         {
             using (InventoryManagerDbContext context = _dbContextFactory.CreateDbContext())
             {
-                IEnumerable<BoughtItemsDTO> boughtItemsDTOs = await context.BoughtItems.Include(i => i.Item).Take(5).ToListAsync();
+                IEnumerable<BoughtItemsDTO> boughtItemsDTOs = await context
+                    .BoughtItems
+                    .Include(i => i.Item)
+                    .OrderByDescending(i => i.PurchaseDate)
+                    .Take(5)
+                    .ToListAsync();
 
                 return boughtItemsDTOs.Select(i => new BoughtItemsModel(
                     i.ShippingStatus,
@@ -86,7 +95,12 @@ namespace InventoryManager.Services.ItemProviders {
         {
             using (InventoryManagerDbContext context = _dbContextFactory.CreateDbContext())
             {
-                IEnumerable<SoldItemsDTO> soldItemsDTOs = await context.SoldItems.Include(i => i.Item).Take(5).ToListAsync();
+                IEnumerable<SoldItemsDTO> soldItemsDTOs = await context
+                    .SoldItems
+                    .Include(i => i.Item)
+                    .OrderByDescending(i => i.SaleDate)
+                    .Take(5)
+                    .ToListAsync();
 
                 return soldItemsDTOs.Select(i => new SoldItemsModel(
                     i.ShippingStatus,
