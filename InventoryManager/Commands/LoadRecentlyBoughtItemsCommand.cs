@@ -6,10 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/* 
- * Asynchronously loads some items from the BoughtItems table from the ItemsDB.
- * How many items loaded are determined by the date range inputted by the user
- */
 namespace InventoryManager.Commands
 {
     /// <summary>

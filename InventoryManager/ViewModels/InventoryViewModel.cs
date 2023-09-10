@@ -28,7 +28,7 @@ namespace InventoryManager.ViewModels {
         {
             InventoryViewModel viewModel = new InventoryViewModel(inventory);
 
-            viewModel.LoadBoughtItemsCommand.Execute(viewModel);
+            viewModel.LoadBoughtItemsCommand.Execute(null);
 
             return viewModel;
         }
