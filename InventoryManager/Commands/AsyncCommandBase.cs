@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/*
- * This abstract class outlines the methods needed to execute asynchronous operations between the application and the SQL database
- */
+
 namespace InventoryManager.Commands {
+    /// <summary>
+    /// Implements an Async version of the CommandBase for async related commands.
+    /// </summary>
     public abstract class AsyncCommandBase:CommandBase {
         private bool _isExecuting;
         private bool IsExecuting {

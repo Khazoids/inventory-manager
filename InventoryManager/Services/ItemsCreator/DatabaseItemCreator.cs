@@ -6,11 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/*
- * This class implements all the methods needed to asynchronously create and insert items into the itemsDB.
- * Data is stored in our models which is then mapped to DTOs before being inserted into the DB.
- */
 namespace InventoryManager.Services.ItemsCreator {
+
+    /// <summary>
+    /// This class provides a DBContextFactory which can then call methods to open a connection to the database.
+    /// 
+    /// While the connection is open, DTOs are created with data that is then inserted into the database.
+    /// 
+    /// The DBContext connection is discarded once finished.
+    /// </summary>
     public class DatabaseItemCreator:IItemCreator {
 
         private readonly InventoryManagerDbContextFactory _dbContextFactory;

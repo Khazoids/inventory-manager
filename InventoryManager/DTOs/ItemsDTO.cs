@@ -10,7 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace InventoryManager.DTOs
-{
+{   
+    /// <summary>
+    /// This class is the DTO representation of the ItemsModel
+    /// </summary>
     public class ItemsDTO
     {
         

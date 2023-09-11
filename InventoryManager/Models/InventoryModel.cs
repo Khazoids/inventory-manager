@@ -7,15 +7,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-/*
- * This domain model represents the application iteself. This model incorporates CRUD methods that is then visually represented in the application.
- */
+
 namespace InventoryManager.Models {
+
+    /// <summary>
+    /// This class represents the Inventory object providing methods that simulate 
+    /// actions such as adding, removing, and shipping from inventory.
+    /// 
+    /// The Inventory model uses the item providers to perform CRUD operations.
+    /// </summary>
     public class InventoryModel {
         private readonly IItemProvider _itemProvider;
         private readonly IItemCreator _itemCreator;
 
-       
+       /// <summary>
+       /// Two parameter constructor
+       /// 
+       /// Takes an IITemProvider and IItemCreator to retrieve and insert into the database.
+       /// </summary>
+       /// <param name="itemProvider">IItemProvider</param>
+       /// <param name="itemCreator">IItemCreator</param>
         public InventoryModel(IItemProvider itemProvider, IItemCreator itemCreator) {
             _itemProvider = itemProvider;
             _itemCreator = itemCreator;

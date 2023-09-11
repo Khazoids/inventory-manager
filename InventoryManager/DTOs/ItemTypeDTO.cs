@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace InventoryManager.DTOs
 {
+    /// <summary>
+    /// This class is the DTO representation of the ItemTypeModel
+    /// </summary>
     public class ItemTypeDTO
     {
         [Key]

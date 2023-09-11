@@ -8,6 +8,12 @@ using System.Threading.Tasks;
 
 namespace InventoryManager.Services.FormEditor
 {
+    /// <summary>
+    /// This class returns a DBContext factory that can call methods to open a connection to the database.
+    /// 
+    /// While the connection is open, data from DTOs are passed to create models which are then inserted
+    /// into the database. Once finished, the DBContext connection is discarded.
+    /// </summary>
     public class DatabaseFormOptionCreator:IFormOptionCreator
     {
         private readonly InventoryManagerDbContextFactory _dbContextFactory;

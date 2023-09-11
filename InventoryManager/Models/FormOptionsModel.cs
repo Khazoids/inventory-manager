@@ -5,7 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace InventoryManager.Models
-{
+{   
+    /// <summary>
+    /// This class stores data for ItemType and ItemStatus options that appear in the drop-down menus
+    /// inside the Add form.
+    /// </summary>
     public class FormOptionsModel
     {
         public string ItemType { get; }

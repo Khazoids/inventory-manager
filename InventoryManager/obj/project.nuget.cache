@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KqIb4dF6mY0VNtH0KqMm2KHeNeci/1R5mXhG15ic4ciQgcU+OS7Ln9vbEyt/ChTmtGP1B2tDVkLQGNLuVehcEg==",
+  "dgSpecHash": "qNZUT5ogGaNc5QbKnt90FNlO43KbdUbHD64YniuY8v9aUS93L4JffkrnT3EbltPa+F5C4ntW4cSu/YGi8AUGPw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Phill\\source\\repos\\InventoryManager\\InventoryManager\\InventoryManager.csproj",
+  "projectFilePath": "C:\\Users\\Phill\\source\\repos\\inventory-manager\\InventoryManager\\InventoryManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Phill\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Phill\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.9\\microsoft.data.sqlite.core.7.0.9.nupkg.sha512",

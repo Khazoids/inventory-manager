@@ -6,6 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace InventoryManager.Models {
+
+    /// <summary>
+    /// Represents the BoughtItems table data in memory
+    /// </summary>
     public class BoughtItemsModel : DomainObject {
         private readonly List<ItemsModel> _items;
         public string ShippingStatus { get; }
@@ -20,6 +24,10 @@ namespace InventoryManager.Models {
            
         }
 
+        /// <summary>
+        /// Method returns data from the PurchasePrice column formatted to represent USD currency
+        /// </summary>
+        /// <returns></returns>
         public string formatDecimal()
         {
             return String.Concat("-$", PurchasePrice);

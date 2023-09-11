@@ -9,17 +9,36 @@ using System.Windows;
 
 namespace InventoryManager.Commands
 {
+    /// <summary>
+    /// Creates a new Item Status that once created, can be selected from the Item Status
+    /// drop down menu in the AddForm.
+    /// </summary>
     public class CreateNewItemStatusCommand:AsyncCommandBase
     {
         private readonly FormModel _formModel;
-        private readonly FormOptionsViewModel _formOptionsViewModel;
+        private readonly FormOptionsViewModel _formOptionsViewModel;    // e.g. Item Status, Item Type, Shipping Status
 
+        /// <summary>
+        /// Two parameter constructor
+        /// </summary>
+        /// <param name="formModel">FormModel</param>
+        /// <param name="formOptionsViewModel">FormOptionsViewModel</param>
         public CreateNewItemStatusCommand(FormModel formModel, FormOptionsViewModel formOptionsViewModel)
         {
             _formModel = formModel;
             _formOptionsViewModel = formOptionsViewModel;
         }
 
+        /// <summary>
+        /// Extracts user-inputted data from the FormOptionsViewModel and modal to be passed into the InventoryModel
+        /// for insertion into database.
+        /// 
+        /// If successful, a success message is displayed.
+        /// 
+        /// Otherwise, an error message is displayed.
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         public override async Task ExecuteAsync(object parameter)
         {
             FormOptionsModel formOptionsModel = new FormOptionsModel(_formOptionsViewModel.NewItemType, _formOptionsViewModel.NewItemStatus);
